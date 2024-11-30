@@ -31,6 +31,9 @@ COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
 # Copy the Laravel project
 COPY . /var/www/html
 
+# Create missing directories (storage and bootstrap/cache)
+RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache
+
 # Set permissions for Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
