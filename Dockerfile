@@ -28,17 +28,17 @@ RUN a2enmod rewrite
 # Install Composer
 COPY --from=composer:2.5 /usr/bin/composer /usr/bin/composer
 
-# Copy the Laravel project (from the 'catalogo' directory to the container)
-COPY catalogo /var/www/html
+# Copy the Laravel project
+COPY . /var/www/html
+
+# Run composer install to install dependencies
+RUN composer install --no-dev --optimize-autoloader
 
 # Set permissions for Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Expose port 80
 EXPOSE 80
-
-# Copy custom Apache config to the container (this assumes 000-default.conf is in the same directory as your Dockerfile)
-COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Start the Apache server
 CMD ["apache2-foreground"]
