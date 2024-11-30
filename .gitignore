@@ -1,5 +1,48 @@
-# Ignore the vendor directory and sensitive files
-/vendor/
+# Ignore sensitive files
 .env
+.env.*
+
+# Ignore composer dependencies
+/vendor/
+
+# Ignore compiled application files
 /bootstrap/cache/
+.phpunit.result.cache
+
+# Ignore debug bar and logs
+/storage/debugbar/*
+/storage/*.log
 /storage/logs/*.log
+
+# Ignore caches
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+/node_modules/
+
+# Ignore IDE and editor-specific files
+/.idea/
+/*.iml
+/.vscode/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore deployment files
+Homestead.yaml
+Homestead.json
+.env.backup
+/.env.*
+
+# Ignore Laravel Mix and front-end assets during build
+/public/hot
+/public/storage
+/public/mix-manifest.json
+/npm-debug.log
+/yarn-error.log
+
+# Ignore other temporary files
+*.swp
+*.swo
