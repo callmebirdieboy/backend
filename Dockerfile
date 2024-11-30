@@ -37,6 +37,9 @@ RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache
 # Set permissions for Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
+# Copy custom Apache config to the container
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+
 # Expose port 80
 EXPOSE 80
 
