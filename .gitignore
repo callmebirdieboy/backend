@@ -1,0 +1,5 @@
+# Ignore the vendor directory and sensitive files
+/vendor/
+.env
+/bootstrap/cache/
+/storage/logs/*.log
